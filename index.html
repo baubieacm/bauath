@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAU Admission Test Helpline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .result {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color:green;
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            padding: 20px;
+            padding-bottom: 20px;
+            font-size: 14px;
+        }
+        .logo {
+            width: 120px; /* Adjust the size of your logo */
+            height: auto;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="newsletter-subscribe text-center">
+        <div class="container">
+            <div class="intro">
+                <img src="BAUATH LOGO.png" alt="Logo" class="logo">
+                <h2 class="text-center" style="color:blue;">ACAS-SESSION:2024-25</h2>
+                <p class="text-center" style="color:red;font-weight: bold;">GPA MARKS CALCULATION FOR AGRICULTURE CLUSTER ADMISSION SYSTEM </p>
+            </div>
+
+            <form id="gpaForm" method="post">
+                
+                <div class="form-group">
+                    <input class="form-control" id="ssc" type="number" name="ssc" placeholder="Total marks on SSC (without 4th subject)">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="hsc" type="number" name="hsc" placeholder="Total marks on HSC (without 4th subject)">
+                </div>
+             
+                
+                <div class="form-group">
+                    <button class="btn btn-primary" type="button" onclick="calculateGPA()">Get your GPA marks</button>
+                </div>
+            </form>
+
+            <div class="result" id="result">
+                <!--Result will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateGPA() {
+            var ssc = document.getElementById('ssc').value;
+            var hsc = document.getElementById('hsc').value;
+
+            if (ssc && hsc) {
+                var sscGPA = (ssc / 1050) * 25;  
+                var hscGPA = (hsc / 1100) * 25;
+
+                var totalGPA = ((sscGPA + hscGPA)).toFixed(4);  
+
+                // Display the result
+                document.getElementById('result').innerHTML = 'Your calculated GPA is: ' + totalGPA;
+            } else {
+                // Display error if any input is missing
+                document.getElementById('result').innerHTML = 'Please enter both SSC and HSC marks.';
+            }
+        }
+    </script>
+
+<footer>
+    &copy; BAU Admission Test Helpline | Shuvo_AET_BAU | Developed by : Anik_BiE_BAU
+
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
